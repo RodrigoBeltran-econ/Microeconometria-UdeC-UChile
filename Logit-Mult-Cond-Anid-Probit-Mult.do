@@ -148,16 +148,6 @@ estimates table MPROBIT MLOGIT, b(%7.4f) p(%7.4f)
 mprobit mode2 income sex, baseoutcome(1) nolog
 predict pmprobit1 pmprobit2 pmprobit3 pmprobit4, pr
 summarize pmlogit* pmprobit* dbeach dpier dprivate dcharter, separator(4)
-********** FIN ********
-** :D **
-** utilizar el comando asmprobit
-***** TAREA
-*REALIZAR ANALISIS DE DECISIÓN MULTINOMIAL
-** VAN A ANALISAR LOS MISMOS DATOS PERO DESDE EL PUNTO DE VISTA DE LOGIT MULTINOMIAL, LOGIT CONDICIONAL, LOGIT MIXTO
-*PROBIT MULTINOMIAL (1 Y 2 VERSIONES MULTINOMIAL Y CONDICIONAL)
-*LOGIT ANIDADO
-*REQUISITOS: INFORME + CODIGOS EN R Y GRETL
-* 7 DE AGOSTO
 
 
 ************************************************************************************************
