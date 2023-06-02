@@ -12,10 +12,10 @@ cor(Datos)
 ###########################################################################
 ####################### Análisis Econométrico por OLS #####################
 
-######## OLS1 con estructura de propiedad "Dueño" 
+######## OLS1 con estructura de propiedad "DueÃ±o" 
 
 size[!is.finite(size)]<-NA
-OLS1<- lm(ratv ~ Due�o + mon_banc + size + fuidespedido + roav + bs + holding)
+OLS1<- lm(ratv ~ Dueño + mon_banc + size + fuidespedido + roav + bs + holding)
 summary(OLS1)
 
 ######## OLS2 con estructura de propiedad "Socio"
@@ -38,50 +38,50 @@ library(systemfit)
 expgte=Datos$exp_gte
 edadgte=Datos$edad_gte
 
-######################## Estructura de propiedad Dueño ######################
-####### Instrumentalización para OLS1 con 2 instrumentos
+######################## Estructura de propiedad DueÃ±o ######################
+####### InstrumentalizaciÃ³n para OLS1 con 2 instrumentos
 
-ivreg1 <- ivreg( ratv ~ Due�o + mon_banc + size + fuidespedido + roav + bs + holding | Due�o + mon_banc + size + fuidespedido + roav + holding + expgte + edadgte)
+ivreg1 <- ivreg( ratv ~ Dueño + mon_banc + size + fuidespedido + roav + bs + holding | Dueño + mon_banc + size + fuidespedido + roav + holding + expgte + edadgte)
 summary(ivreg1, vcov=sandwich, df=Inf, diagnostics=TRUE) 
 
-######  Instrumentalización para OLS1 con instrumento edad_gte
+######  InstrumentalizaciÃ³n para OLS1 con instrumento edad_gte
 
-ivreg1.1 <- ivreg( ratv ~ Due�o + mon_banc + size + fuidespedido + roav + bs + holding | Due�o + mon_banc + size + fuidespedido + roav + holding + edadgte)
+ivreg1.1 <- ivreg( ratv ~ Dueño + mon_banc + size + fuidespedido + roav + bs + holding | Dueño + mon_banc + size + fuidespedido + roav + holding + edadgte)
 summary(ivreg1.1, vcov=sandwich, df=Inf, diagnostics=TRUE) 
 
-######  Instrumentalización para OLS1 con instrumento exp_gte
+######  InstrumentalizaciÃ³n para OLS1 con instrumento exp_gte
 
-ivreg1.2 <- ivreg( ratv ~ Due�o + mon_banc + size + fuidespedido + roav + bs + holding | Due�o + mon_banc + size + fuidespedido + roav + holding + expgte)
+ivreg1.2 <- ivreg( ratv ~ Dueño + mon_banc + size + fuidespedido + roav + bs + holding | Dueño + mon_banc + size + fuidespedido + roav + holding + expgte)
 summary(ivreg1.2, vcov=sandwich, df=Inf, diagnostics=TRUE) 
 
 ######################## Estructura de propiedad Socio ######################
-####### Instrumentalización para OLS2 con 2 instrumentos
+####### InstrumentalizaciÃ³n para OLS2 con 2 instrumentos
 
 ivreg2 <- ivreg( ratv ~ socio + mon_banc + size + fuidespedido + roav + bs + holding | socio + mon_banc + size + fuidespedido + roav + holding + expgte + edadgte)
 summary(ivreg2, vcov=sandwich, df=Inf, diagnostics=TRUE) 
 
-######  Instrumentalización para OLS2 con instrumento edad_gte
+######  InstrumentalizaciÃ³n para OLS2 con instrumento edad_gte
 
 ivreg2.1 <- ivreg( ratv ~ socio + mon_banc + size + fuidespedido + roav + bs + holding | socio + mon_banc + size + fuidespedido + roav + holding + edadgte)
 summary(ivreg1.1, vcov=sandwich, df=Inf, diagnostics=TRUE) 
 
-######  Instrumentalización para OLS2 con instrumento exp_gte
+######  InstrumentalizaciÃ³n para OLS2 con instrumento exp_gte
 
 ivreg2.2 <- ivreg( ratv ~ socio + mon_banc + size + fuidespedido + roav + bs + holding | socio + mon_banc + size + fuidespedido + roav + holding + expgte)
 summary(ivreg1.2, vcov=sandwich, df=Inf, diagnostics=TRUE) 
 
 ######################## Estructura de propiedad Gerente ######################
-####### Instrumentalización para OLS3 con 2 instrumentos
+####### InstrumentalizaciÃ³n para OLS3 con 2 instrumentos
 
 ivreg3 <- ivreg( ratv ~ gerente + mon_banc + size + fuidespedido + roav + bs + holding | gerente + mon_banc + size + fuidespedido + roav + holding + expgte + edadgte)
 summary(ivreg3, vcov=sandwich, df=Inf, diagnostics=TRUE) 
 
-######  Instrumentalización para OLS3 con instrumento edad_gte
+######  InstrumentalizaciÃ³n para OLS3 con instrumento edad_gte
 
 ivreg3.1 <- ivreg( ratv ~ gerente + mon_banc + size + fuidespedido + roav + bs + holding | gerente + mon_banc + size + fuidespedido + roav + holding + edadgte)
 summary(ivreg3.1, vcov=sandwich, df=Inf, diagnostics=TRUE) 
 
-######  Instrumentalización para OLS3 con instrumento exp_gte
+######  InstrumentalizaciÃ³n para OLS3 con instrumento exp_gte
 
 ivreg3.2 <- ivreg( ratv ~ gerente + mon_banc + size + fuidespedido + roav + bs + holding | gerente + mon_banc + size + fuidespedido + roav + holding + expgte)
 summary(ivreg3.2, vcov=sandwich, df=Inf, diagnostics=TRUE) 
