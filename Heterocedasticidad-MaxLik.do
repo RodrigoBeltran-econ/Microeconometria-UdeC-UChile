@@ -1,12 +1,12 @@
 use "C:\Users\Rodrigo\Desktop\Econometria\basedatos8.dta", clear
 
-*Se realiza estad韘tica descriptiva
+*Se realiza estad铆stica descriptiva
 summarize ventas precio_medio precio_comp publicidad
 
-*Matriz de Correlaci髇
+*Matriz de Correlaci贸n
 pwcorr ventas precio_medio precio_comp publicidad
 
-****Regresi髇 OLS
+****Regresi贸n OLS
 regress ventas precio_medio precio_comp publicidad
 
 *Generando residuos
@@ -27,10 +27,10 @@ rvpplot precio_comp, recast(scatter) yline(0) name(precioc)
 rvpplot publicidad, recast(scatter) yline(0) name(public)
 
 
-*Regresi髇 por ML
+*Regresi贸n por ML
 glm ventas precio_medio precio_comp publicidad, family(gaussian) link(identity)
 
-*Regesi髇 OLS robusto
+*Regesi贸n OLS robusto
 regress ventas precio_medio precio_comp publicidad, vce(robust)
 
 
@@ -40,7 +40,7 @@ gen logprecio_medio=log(precio_medio)
 gen logprecio_comp=log(precio_comp)
 gen logpublicidad=log(publicidad)
 
-*Regresi髇 OLS para log
+*Regresi贸n OLS para log
 regress logventas logprecio_medio logprecio_comp logpublicidad
 
 *Generando residuos
@@ -60,10 +60,10 @@ rvpplot logprecio_medio, recast(scatter) yline(0) name(logprecm)
 rvpplot logprecio_comp, recast(scatter) yline(0) name(logprecc)
 rvpplot logpublicidad, recast(scatter) yline(0) name(logpubl)
 
-*Regresi髇 por ML
+*Regresi贸n por ML
 glm logventas logprecio_medio logprecio_comp logpublicidad, family(gaussian) link(identity)
 
-*Regesi髇 OLS robusto
+*Regesi贸n OLS robusto
 regress logventas logprecio_medio logprecio_comp logpublicidad, vce(robust)
 
 
