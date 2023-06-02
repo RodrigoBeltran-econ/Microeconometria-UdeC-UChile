@@ -1,4 +1,4 @@
-####Para el test de heterocedasticidad de Breusch Pagan se utiliza el paquete de "olsrr", a lo que se adjunta el comando de instalaci髇 a continuaci髇:
+####Para el test de heterocedasticidad de Breusch Pagan se utiliza el paquete de "olsrr", a lo que se adjunta el comando de instalaci贸n a continuaci贸n:
 #install.packages("olsrr")
 
 #Se abre la base de datos
@@ -6,13 +6,13 @@ data<-read.csv("C:/Users/Rodrigo/Desktop/Set_practico_08_Ventas.csv", header=T, 
 attach(data)
 data
 
-#An醠isis estad韘tico descriptivo
+#An谩lisis estad铆stico descriptivo
 summary(data)
 
-#An醠isis de correlaci髇
+#An谩lisis de correlaci贸n
 cor(data[,c("ventas","precio_medio","precio_comp","Publicidad")], use="complete")
 
-####Regresi髇 en OLS
+####Regresi贸n en OLS
 RegModel.1 <- lm(ventas~precio_medio+precio_comp+Publicidad, data=data)
 summary(RegModel.1)
 
@@ -51,7 +51,7 @@ plot(data$Publicidad, RegModel.1Res,
 abline(0, 0) 
 
 
-####Regresi髇 en ML
+####Regresi贸n en ML
 x<-cbind(1,data$precio_medio,data$precio_comp,data$Publicidad)
 y<-matrix(data$ventas)
 y
@@ -112,7 +112,7 @@ dimnames(results) <- dimnames(s$coefficients)
 results
 }
 
-#Regresi髇 OLS robusta
+#Regresi贸n OLS robusta
 summaryw(RegModel.1)
 
 
@@ -123,7 +123,7 @@ data$lnprecio_comp<-log(data$precio_comp)
 data$lnpublicidad<-log(data$Publicidad)
 attach(data)
 
-####Regresi髇 en OLS
+####Regresi贸n en OLS
 RegModel.2 <- lm(lnventas~lnprecio_medio+lnprecio_comp+lnpublicidad, data=data)
 summary(RegModel.2)
 
@@ -162,7 +162,7 @@ abline(0, 0)
 
 
 
-####Regresi髇 en ML
+####Regresi贸n en ML
 x<-cbind(1,data$lnprecio_medio,data$lnprecio_comp,data$lnpublicidad)
 y<-matrix(data$lnventas)
 y
